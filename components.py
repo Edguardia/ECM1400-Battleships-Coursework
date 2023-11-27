@@ -5,7 +5,7 @@ import random
 import json
 
 
-def initialise_board(size="10"):
+def initialise_board(size: int = 10) -> list:
     """Initialises the board with the given size"""
     board = []
     # x = columns and y = rows
@@ -17,7 +17,7 @@ def initialise_board(size="10"):
     return board
 
 
-def create_battleships(file_name="battleships.txt"):
+def create_battleships(file_name: str = "battleships.txt") -> dict:
     """Creates a dictionary of battleships from the given file"""
     ships = {}
 
@@ -29,7 +29,7 @@ def create_battleships(file_name="battleships.txt"):
     return ships
 
 
-def validate_placement(direction, board, x, y, length):
+def validate_placement(direction: str, board: list, x: int, y: int, length: int) -> bool:
     """Checks if the placement of the battleships is valid on the board"""
     valid = True
     if direction == "h":
@@ -51,7 +51,7 @@ def validate_placement(direction, board, x, y, length):
     return valid
 
 
-def place_battleships(board, ships, board_data=None, algorithm="simple"):
+def place_battleships(board: list, ships: dict, board_data: list = None, algorithm: str = "simple") -> list:
     """Places the battleships on the initialised board"""
     if algorithm == "simple":
         i = 0

@@ -8,9 +8,8 @@ players = {"player": [],
            "ai": []}
 
 
-def generate_attack(board):
+def generate_attack(board: list) -> tuple:
     """Generates the coordinates of the computer's attack"""
-    
     x = random.randint(0, len(board) - 1)
     y = random.randint(0, len(board[x]) - 1)
     coordinates = (x, y)
@@ -18,7 +17,7 @@ def generate_attack(board):
     return coordinates
 
 
-def board_to_ascii(board):
+def board_to_ascii(board: list) -> str:
     """Converts the board to ascii text to be printed"""
 
     board_ascii = ""

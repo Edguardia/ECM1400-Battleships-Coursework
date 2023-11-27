@@ -3,7 +3,7 @@
 import components
 
 
-def attack(coordinates, board, battleships):
+def attack(coordinates: tuple, board: list, battleships: dict) -> bool:
     """Checks if the attack is a hit or a miss and changes value in board and battleships"""
 
     if board[coordinates[0]][coordinates[1]] is not None:
@@ -21,7 +21,7 @@ def attack(coordinates, board, battleships):
     return False
 
 
-def cli_coordinates_input():
+def cli_coordinates_input() -> tuple:
     """Takes the coordinates of the attack from the user"""
     while True:
         try:
@@ -29,7 +29,7 @@ def cli_coordinates_input():
             coordinates = coordinates.split(",")
             coordinates = (int(coordinates[0]), int(coordinates[1]))
 
-            if int(coordinates[0]) >= 0 and int(coordinates[0]) < 10 and int(coordinates[1]) >= 0 and int(coordinates[1]) < 10:
+            if 0 <= int(coordinates[0]) < 10 and 0 <= int(coordinates[1]) < 10:
                 return coordinates
 
             print("Invalid coordinates")

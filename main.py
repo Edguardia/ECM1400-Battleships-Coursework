@@ -3,17 +3,12 @@ import components
 import game_engine
 import mp_game_engine
 
-
 app = Flask(__name__)
 app.secret_key = 'dsjadiasojdajidoai'
 app.config['SESSION_TYPE'] = 'memcached'
 
-
 players = {"player": [],
            "ai": []}
-
-
-
 
 
 @app.route("/placement", methods=["GET", "POST"])
@@ -28,7 +23,7 @@ def placement_interface():
             players["ai"][0], players["ai"][1], algorithm="random")
         return render_template("placement.html", ships=players["player"][1], board_size=10)
 
-    elif request.method == "POST":
+    if request.method == "POST":
         board_data = request.get_json()
         print(board_data)
         components.place_battleships(
@@ -45,6 +40,7 @@ def root():
 
 @app.route("/attack", methods=["GET", "POST"])
 def process_attack():
+    """interacts with the attack decorator screen"""
     if 'playerHits' not in session or 'aiHits' not in session or 'needed_hits' not in session:
         session['playerHits'] = 0
         session['aiHits'] = 0
@@ -76,5 +72,4 @@ def process_attack():
 
 
 if __name__ == "__main__":
-
     app.run(debug=True)
