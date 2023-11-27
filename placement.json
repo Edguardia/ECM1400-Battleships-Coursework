@@ -1,0 +1,7 @@
+{
+  "Carrier":["0","0","h"],
+  "Battleship":["0","1","h"],
+  "Cruiser":["0","2","h"],
+  "Submarine":["0","3","h"],
+  "Destroyer":["0","4","h"]
+}

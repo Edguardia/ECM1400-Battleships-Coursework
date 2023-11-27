@@ -1,0 +1,130 @@
+"""This module contains the initial functions for the battleships game"""
+
+
+import random
+import json
+
+
+def initialise_board(size="10"):
+    """Initialises the board with the given size"""
+    board = []
+    # x = columns and y = rows
+    for column in range(int(size)):
+        board.append([])
+        for _ in range(int(size)):
+            board[column].append(None)
+
+    return board
+
+
+def create_battleships(file_name="battleships.txt"):
+    """Creates a dictionary of battleships from the given file"""
+    ships = {}
+
+    with open(file_name, encoding="utf-8") as file:
+        for line in file:
+            (key, val) = line.split(",")
+            ships[key] = int(val)
+
+    return ships
+
+
+def validate_placement(direction, board, x, y, length):
+    """Checks if the placement of the battleships is valid on the board"""
+    valid = True
+    if direction == "h":
+        for i in range(0, length):
+            if x+i > 9 or board[x+i][y] is not None:
+                valid = False
+                break
+
+            continue
+
+    elif direction == "v":
+        for i in range(0, length):
+            if y+i > 9 or board[x][y+i] is not None:
+                valid = False
+                break
+
+            continue
+
+    return valid
+
+
+def place_battleships(board, ships, board_data=None, algorithm="simple"):
+    """Places the battleships on the initialised board"""
+    if algorithm == "simple":
+        i = 0
+        for ship in ships:
+            for length in range(ships[ship]):
+                board[i][length] = ship
+            i += 1
+
+    elif algorithm == "random":
+        for ship in ships:
+            placed = False
+            while placed is False:
+                x = random.randint(0, len(board) - 1)
+                y = random.randint(0, len(board) - 1)
+                # v = down, h = right
+                options = ["v", "h"]
+                choose_direction = random.choice(options)
+                if choose_direction == "h":
+                    valid = validate_placement("h", board, x, y, ships[ship])
+                    if valid is True:
+                        for i in range(0, ships[ship]):
+                            board[x+i][y] = ship
+                        placed = True
+                    else:
+                        continue
+
+                elif choose_direction == "v":
+                    valid = validate_placement("v", board, x, y, ships[ship])
+                    if valid is True:
+                        for i in range(0, ships[ship]):
+                            board[x][y+i] = ship
+                        placed = True
+                    else:
+                        continue
+
+    elif algorithm == "custom":
+        with open("placement.json", encoding="utf-8") as file:
+            placement = json.load(file)
+
+        if board_data is not None:
+            placement = board_data
+
+        for ship in placement:
+            x = int(placement[ship][0])
+            y = int(placement[ship][1])
+            direction = placement[ship][2]
+            placed = False
+            while placed is False:
+
+                if direction == "h":
+                    valid = validate_placement(
+                        "h", board, x, y, ships[ship])
+                    if valid is True:
+                        for i in range(0, ships[ship]):
+                            board[x+i][y] = ship
+                        placed = True
+                    else:
+                        continue
+
+                elif direction == "v":
+                    valid = validate_placement(
+                        "v", board, x, y, ships[ship])
+                    if valid is True:
+                        for i in range(0, ships[ship]):
+                            board[x][y+i] = ship
+                        placed = True
+                    else:
+                        continue
+
+                else:
+                    print("Invalid direction")
+                    continue
+    else:
+        print("Invalid difficulty")
+    print(board)
+    return board
