@@ -5,32 +5,35 @@ import mp_game_engine
 
 
 app = Flask(__name__)
+app.secret_key = 'dsjadiasojdajidoai'
+app.config['SESSION_TYPE'] = 'memcached'
+
 
 players = {"player": [],
            "ai": []}
 
 
-def user_ship_placement():
-    """creates the initial board and ships for each player"""
-    for user in players:
-        players[user] = [
-            components.initialise_board(), components.create_battleships()]
-    players["ai"][0] = components.place_battleships(
-        players["ai"][0], players["ai"][1], algorithm="random")
+
 
 
 @app.route("/placement", methods=["GET", "POST"])
 def placement_interface():
-    """interacts with the placment decorator screen"""
+    """interacts with the placement decorator screen"""
     if request.method == "GET":
+        session.clear()
+        for user in players:
+            players[user] = [
+                components.initialise_board(), components.create_battleships()]
+        players["ai"][0] = components.place_battleships(
+            players["ai"][0], players["ai"][1], algorithm="random")
         return render_template("placement.html", ships=players["player"][1], board_size=10)
 
     elif request.method == "POST":
         board_data = request.get_json()
         print(board_data)
         components.place_battleships(
-            players["player"][0], players["player"][1], board_data, algorithm='custom')
-        return jsonify({"message": "recieved"}), 200
+            players["player"][0], players["player"][1], board_data=board_data, algorithm='custom')
+        return jsonify({"message": "received"}), 200
 
 
 @app.route("/", methods=["GET"])
@@ -41,7 +44,7 @@ def root():
 
 
 @app.route("/attack", methods=["GET", "POST"])
-def flask_attack():
+def process_attack():
     if 'playerHits' not in session or 'aiHits' not in session or 'needed_hits' not in session:
         session['playerHits'] = 0
         session['aiHits'] = 0
@@ -73,7 +76,5 @@ def flask_attack():
 
 
 if __name__ == "__main__":
-    user_ship_placement()
-    app.secret_key = 'dsjadiasojdajidoai'
 
     app.run(debug=True)

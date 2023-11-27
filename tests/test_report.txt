@@ -1,3 +1,4 @@
 Test Report
 ===========
 
+battleships.txt file does not exist in your solution. A file called battleships_temp.txt has been created in the expected location. Please rename this file to battleships.txt and add your battleships to it.
