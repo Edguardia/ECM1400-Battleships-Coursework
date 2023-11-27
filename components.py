@@ -31,10 +31,11 @@ def create_battleships(file_name: str = "battleships.txt") -> dict:
 
 def validate_placement(direction: str, board: list, x: int, y: int, length: int) -> bool:
     """Checks if the placement of the battleships is valid on the board"""
+    board_size = len(board)
     valid = True
     if direction == "h":
         for i in range(0, length):
-            if x+i > 9 or board[x+i][y] is not None:
+            if x+i >= board_size or board[x+i][y] is not None:
                 valid = False
                 break
 
@@ -42,7 +43,7 @@ def validate_placement(direction: str, board: list, x: int, y: int, length: int)
 
     elif direction == "v":
         for i in range(0, length):
-            if y+i > 9 or board[x][y+i] is not None:
+            if y+i >= board_size or board[x][y+i] is not None:
                 valid = False
                 break
 

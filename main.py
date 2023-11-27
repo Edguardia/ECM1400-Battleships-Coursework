@@ -21,7 +21,7 @@ def placement_interface():
                 components.initialise_board(), components.create_battleships()]
         players["ai"][0] = components.place_battleships(
             players["ai"][0], players["ai"][1], algorithm="random")
-        return render_template("placement.html", ships=players["player"][1], board_size=10)
+        return render_template("placement.html", ships=players["player"][1], board_size=len(players["player"][0]))
 
     if request.method == "POST":
         board_data = request.get_json()

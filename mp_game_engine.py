@@ -55,7 +55,7 @@ def ai_opponent_game_loop():
     while userhits < needed_hits and aihits < needed_hits:
         if turn_counter == 0:
             print("USER TURN:")
-            target_coordinates = game_engine.cli_coordinates_input()
+            target_coordinates = game_engine.cli_coordinates_input(players["player"][0])
             hit_or_miss = game_engine.attack(
                 target_coordinates, players["ai"][0], players["ai"][1])
             if hit_or_miss is True:

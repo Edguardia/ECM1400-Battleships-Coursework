@@ -21,15 +21,16 @@ def attack(coordinates: tuple, board: list, battleships: dict) -> bool:
     return False
 
 
-def cli_coordinates_input() -> tuple:
+def cli_coordinates_input(board: list) -> tuple:
     """Takes the coordinates of the attack from the user"""
+    board_size = len(board)
     while True:
         try:
             coordinates = input("Enter the coordinates of your attack: ")
             coordinates = coordinates.split(",")
             coordinates = (int(coordinates[0]), int(coordinates[1]))
 
-            if 0 <= int(coordinates[0]) < 10 and 0 <= int(coordinates[1]) < 10:
+            if 0 <= int(coordinates[0]) < board_size and 0 <= int(coordinates[1]) < board_size:
                 return coordinates
 
             print("Invalid coordinates")
@@ -49,7 +50,7 @@ def simple_game_loop():
     needed_hits = sum(battleships.values())
     hits = 0
     while hits < needed_hits:
-        target_coordinates = cli_coordinates_input()
+        target_coordinates = cli_coordinates_input(board)
         hit_or_miss = attack(target_coordinates, board, battleships)
         if hit_or_miss is True:
             hits += 1
