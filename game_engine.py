@@ -1,11 +1,11 @@
 """This file contains the game loop and the functions that are used in the game loop."""
 
 import components
+from base_logger import logger
 
 
 def attack(coordinates: tuple, board: list, battleships: dict) -> bool:
     """Checks if the attack is a hit or a miss and changes value in board and battleships"""
-
     if board[coordinates[0]][coordinates[1]] is not None:
         battleships[board[coordinates[0]][coordinates[1]]] -= 1
         board[coordinates[0]][coordinates[1]] = None

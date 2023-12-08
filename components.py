@@ -3,7 +3,7 @@
 
 import random
 import json
-
+from base_logger import logger
 
 def initialise_board(size: int = 10) -> list:
     """Initialises the board with the given size"""
@@ -13,7 +13,8 @@ def initialise_board(size: int = 10) -> list:
         board.append([])
         for _ in range(int(size)):
             board[column].append(None)
-
+    logger.info("Board initialised, Size:", size)
+    logger.debug(board)
     return board
 
 
@@ -26,6 +27,7 @@ def create_battleships(file_name: str = "battleships.txt") -> dict:
             (key, val) = line.split(",")
             ships[key] = int(val)
 
+    logger.info("Battleships created", ships)
     return ships
 
 
@@ -55,6 +57,7 @@ def validate_placement(direction: str, board: list, x: int, y: int, length: int)
 def place_battleships(board: list, ships: dict, board_data: list = None, algorithm: str = "simple") -> list:
     """Places the battleships on the initialised board"""
     if algorithm == "simple":
+        logger.info("Placing battleships with simple algorithm")
         i = 0
         for ship in ships:
             for length in range(ships[ship]):
@@ -62,6 +65,7 @@ def place_battleships(board: list, ships: dict, board_data: list = None, algorit
             i += 1
 
     elif algorithm == "random":
+        logger.info("Placing battleships with random algorithm")
         for ship in ships:
             placed = False
             while placed is False:
@@ -89,6 +93,7 @@ def place_battleships(board: list, ships: dict, board_data: list = None, algorit
                         continue
 
     elif algorithm == "custom":
+        logger.info("Placing battleships with custom algorithm")
         with open("placement.json", encoding="utf-8") as file:
             placement = json.load(file)
 

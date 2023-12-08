@@ -1,4 +1,8 @@
 Test Report
 ===========
 
-battleships.txt file does not exist in your solution. A file called battleships_temp.txt has been created in the expected location. Please rename this file to battleships.txt and add your battleships to it.
+components module does not exist in your solution.
+game_engine module does not exist in your solution.
+test_attack_arguments failed as one of the functions place_battleships, initialise_board or create_battleships or attack threw an unexpected error. (Crashed before test completed). Check the test output window for deatils
+mp_game_engine module does not exist in your solution.
+main module does not exist in your solution.

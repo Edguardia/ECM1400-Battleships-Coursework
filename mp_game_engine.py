@@ -3,15 +3,16 @@
 import random
 import components
 import game_engine
+from base_logger import logger
 
 players = {"player": [],
            "ai": []}
 
 
-def generate_attack(board: list) -> tuple:
+def generate_attack(board_size: int = 10) -> tuple:
     """Generates the coordinates of the computer's attack"""
-    x = random.randint(0, len(board) - 1)
-    y = random.randint(0, len(board[x]) - 1)
+    x = random.randint(0, board_size - 1)
+    y = random.randint(0, board_size - 1)
     coordinates = (x, y)
 
     return coordinates
@@ -65,11 +66,15 @@ def ai_opponent_game_loop():
 
         elif turn_counter == 1:
             print("AI TURN:")
-            target_coordinates = generate_attack(players["player"][0])
+            target_coordinates = generate_attack(len(players["player"][0]))
+            print("AI Target: ", target_coordinates)
             hit_or_miss = game_engine.attack(
                 target_coordinates, players["player"][0], players["player"][1])
             if hit_or_miss is True:
                 aihits += 1
+                print("AI HITS!")
+            else:
+                print("AI MISSES!")
             print(board_to_ascii(players["player"][0]))
             turn_counter = 0
 

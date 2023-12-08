@@ -1,7 +1,13 @@
+"""module for flask application"""
 from flask import Flask, render_template, request, jsonify, session
 import components
 import game_engine
 import mp_game_engine
+from base_logger import logger
+import yaml
+
+with open("config.yaml", "r") as file:
+    config = yaml.safe_load(file)
 
 app = Flask(__name__)
 app.secret_key = 'dsjadiasojdajidoai'
@@ -18,7 +24,7 @@ def placement_interface():
         session.clear()
         for user in players:
             players[user] = [
-                components.initialise_board(), components.create_battleships()]
+                components.initialise_board(int(config['board_size'])), components.create_battleships()]
         players["ai"][0] = components.place_battleships(
             players["ai"][0], players["ai"][1], algorithm="random")
         return render_template("placement.html", ships=players["player"][1], board_size=len(players["player"][0]))
@@ -50,7 +56,7 @@ def process_attack():
 
         x = request.args.get('x')
         y = request.args.get('y')
-        ai_turn = mp_game_engine.generate_attack(players["player"][0])
+        ai_turn = mp_game_engine.generate_attack(len(players["player"][0]))
         ai_hit_or_miss = game_engine.attack(
             ai_turn, players["player"][0], players["player"][1])
         hit_or_miss = game_engine.attack(
@@ -72,4 +78,5 @@ def process_attack():
 
 
 if __name__ == "__main__":
+    logger.info("Starting Flask Application")
     app.run(debug=True)
