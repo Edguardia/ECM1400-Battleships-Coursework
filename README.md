@@ -29,8 +29,8 @@ in Python. The game will have multiple ways to play, either in a console or with
 ### Accessing Logs
 * Logs for the games are stored in `battleships.log`
 ### Sphinx/Autodoc
-To access the sphinx autodoc documentation, open `docs/build/html/index.html` in your browser or
-visit [https://edguardia.github.io/ECM1400-Battleships-Coursework/](https://edguardia.github.io/ECM1400-Battleships-Coursework/)
+To access the sphinx autodoc documentation, open `docs/build/html/index.html` in your browser 
+Documentation may be available here but will likely be out of date [https://edguardia.github.io/ECM1400-Battleships-Coursework/](https://edguardia.github.io/ECM1400-Battleships-Coursework/)
 ####
 ### Config Documentation
 * `config.yaml` contains the configuration for the game. This includes the board size
