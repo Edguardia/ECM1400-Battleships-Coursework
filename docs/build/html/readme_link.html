@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Readme File &#8212; ECM-1400-Battleships-Coursework 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="readme-file">
+<h1>Readme File<a class="headerlink" href="#readme-file" title="Link to this heading">¶</a></h1>
+</section>
+<section id="ecm1400-battleships-coursework">
+<h1>ECM1400-Battleships-Coursework<a class="headerlink" href="#ecm1400-battleships-coursework" title="Link to this heading">¶</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<p>This is the repository for the ECM1400 Battleships Coursework. The aim of this project is to create a Battleships game
+in Python. The game will have multiple ways to play, either in a console or with a web interface.</p>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Python 3.11</p></li>
+</ul>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Clone the repository</p></li>
+<li><p>RUN <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code></p></li>
+</ul>
+</section>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">¶</a></h2>
+<section id="for-simple-game">
+<h3>For Simple Game<a class="headerlink" href="#for-simple-game" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>RUN <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">game_engine.py</span> <span class="pre">-c</span></code></p></li>
+</ul>
+</section>
+<section id="for-command-line-game-against-ai">
+<h3>For Command Line Game against AI<a class="headerlink" href="#for-command-line-game-against-ai" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>RUN <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">mp_game_engine.py</span> <span class="pre">-c</span></code></p></li>
+</ul>
+</section>
+<section id="for-web-game-against-ai">
+<h3>For Web Game against AI<a class="headerlink" href="#for-web-game-against-ai" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>RUN <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">main.py</span></code></p></li>
+<li><p>Then go to <a class="reference external" href="https://127.0.0.1/placement">127.0.0.1/placement</a> in your browser</p></li>
+</ul>
+</section>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>RUN <code class="docutils literal notranslate"><span class="pre">pytest</span></code></p></li>
+</ul>
+</section>
+<section id="developer-documentation">
+<h2>Developer Documentation<a class="headerlink" href="#developer-documentation" title="Link to this heading">¶</a></h2>
+<section id="accessing-logs">
+<h3>Accessing Logs<a class="headerlink" href="#accessing-logs" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Logs for the games are stored in <code class="docutils literal notranslate"><span class="pre">battleships.log</span></code></p></li>
+</ul>
+</section>
+<section id="sphinx-autodoc">
+<h3>Sphinx/Autodoc<a class="headerlink" href="#sphinx-autodoc" title="Link to this heading">¶</a></h3>
+<p>To access the sphinx autodoc documentation, open <code class="docutils literal notranslate"><span class="pre">docs/build/html/index.html</span></code> in your browser or
+visit <a class="reference external" href="https://edguardia.github.io/ECM1400-Battleships-Coursework/">https://edguardia.github.io/ECM1400-Battleships-Coursework/</a></p>
+</section>
+<section id="config-documentation">
+<h3>Config Documentation<a class="headerlink" href="#config-documentation" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">config.yaml</span></code> contains the configuration for the game. This includes the board size</p></li>
+<li><p>To edit the board size, change the <code class="docutils literal notranslate"><span class="pre">board_size</span></code> variable in <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code> to an integer preferably less than 20</p></li>
+<li><p>You can also change level of logging here by setting <code class="docutils literal notranslate"><span class="pre">logging_level</span></code> to one of <code class="docutils literal notranslate"><span class="pre">DEBUG,</span> <span class="pre">INFO,</span> <span class="pre">WARNING,</span> <span class="pre">ERROR,</span> <span class="pre">CRITICAL,</span> <span class="pre">NOTSET</span></code></p></li>
+<li><p>To edit the number or length of battleships add or edit new rows in <code class="docutils literal notranslate"><span class="pre">battleships.txt</span></code> with the format <code class="docutils literal notranslate"><span class="pre">name_of_ship,</span> <span class="pre">length_of_ship</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="details">
+<h2>Details<a class="headerlink" href="#details" title="Link to this heading">¶</a></h2>
+<section id="authors">
+<h3>Authors<a class="headerlink" href="#authors" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Edward Pratt</p></li>
+</ul>
+</section>
+<section id="licence">
+<h3>Licence<a class="headerlink" href="#licence" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>GPL-3.0</p></li>
+</ul>
+</section>
+<section id="source">
+<h3>Source<a class="headerlink" href="#source" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://github.com/Edguardia/ECM1400-Battleships-Coursework">https://github.com/Edguardia/ECM1400-Battleships-Coursework</a></p>
+<section id="documentation">
+<h4>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">¶</a></h4>
+<p><a class="reference external" href="https://edguardia.github.io/ECM1400-Battleships-Coursework">https://edguardia.github.io/ECM1400-Battleships-Coursework</a></p>
+</section>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">ECM-1400-Battleships-Coursework</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Edward Pratt.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/readme_link.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

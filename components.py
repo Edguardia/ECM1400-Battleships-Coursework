@@ -1,9 +1,9 @@
 """This module contains the initial functions for the battleships game"""
 
-
 import random
 import json
 from base_logger import logger
+
 
 def initialise_board(size: int = 10) -> list:
     """Initialises the board with the given size"""
@@ -13,8 +13,7 @@ def initialise_board(size: int = 10) -> list:
         board.append([])
         for _ in range(int(size)):
             board[column].append(None)
-    logger.info("Board initialised, Size:", size)
-    logger.debug(board)
+    logger.info(("Board initialised, Size:", size))
     return board
 
 
@@ -27,30 +26,33 @@ def create_battleships(file_name: str = "battleships.txt") -> dict:
             (key, val) = line.split(",")
             ships[key] = int(val)
 
-    logger.info("Battleships created", ships)
+    logger.info(("Battleships created", ships))
     return ships
 
 
 def validate_placement(direction: str, board: list, x: int, y: int, length: int) -> bool:
     """Checks if the placement of the battleships is valid on the board"""
+    logger.debug(("Validating placement", direction, board, x, y, length))
     board_size = len(board)
     valid = True
     if direction == "h":
         for i in range(0, length):
-            if x+i >= board_size or board[x+i][y] is not None:
+            if x + i >= board_size or board[x + i][y] is not None:
                 valid = False
+                logger.debug("Invalid Placement")
                 break
 
             continue
 
     elif direction == "v":
         for i in range(0, length):
-            if y+i >= board_size or board[x][y+i] is not None:
+            if y + i >= board_size or board[x][y + i] is not None:
                 valid = False
+                logger.debug("Invalid Placement")
                 break
 
             continue
-
+    logger.debug("Valid Placement")
     return valid
 
 
@@ -60,6 +62,7 @@ def place_battleships(board: list, ships: dict, board_data: list = None, algorit
         logger.info("Placing battleships with simple algorithm")
         i = 0
         for ship in ships:
+            logger.info(("Placing battleship:", ship))
             for length in range(ships[ship]):
                 board[i][length] = ship
             i += 1
@@ -67,6 +70,7 @@ def place_battleships(board: list, ships: dict, board_data: list = None, algorit
     elif algorithm == "random":
         logger.info("Placing battleships with random algorithm")
         for ship in ships:
+            logger.info(("Placing battleship:", ship))
             placed = False
             while placed is False:
                 x = random.randint(0, len(board) - 1)
@@ -78,7 +82,7 @@ def place_battleships(board: list, ships: dict, board_data: list = None, algorit
                     valid = validate_placement("h", board, x, y, ships[ship])
                     if valid is True:
                         for i in range(0, ships[ship]):
-                            board[x+i][y] = ship
+                            board[x + i][y] = ship
                         placed = True
                     else:
                         continue
@@ -87,7 +91,7 @@ def place_battleships(board: list, ships: dict, board_data: list = None, algorit
                     valid = validate_placement("v", board, x, y, ships[ship])
                     if valid is True:
                         for i in range(0, ships[ship]):
-                            board[x][y+i] = ship
+                            board[x][y + i] = ship
                         placed = True
                     else:
                         continue
@@ -100,7 +104,9 @@ def place_battleships(board: list, ships: dict, board_data: list = None, algorit
         if board_data is not None:
             placement = board_data
 
+        logger.info(("Placing with these instructions:", placement))
         for ship in placement:
+            logger.info(("Placing battleship:", ship))
             x = int(placement[ship][0])
             y = int(placement[ship][1])
             direction = placement[ship][2]
@@ -112,7 +118,7 @@ def place_battleships(board: list, ships: dict, board_data: list = None, algorit
                         "h", board, x, y, ships[ship])
                     if valid is True:
                         for i in range(0, ships[ship]):
-                            board[x+i][y] = ship
+                            board[x + i][y] = ship
                         placed = True
                     else:
                         continue
@@ -122,7 +128,7 @@ def place_battleships(board: list, ships: dict, board_data: list = None, algorit
                         "v", board, x, y, ships[ship])
                     if valid is True:
                         for i in range(0, ships[ship]):
-                            board[x][y+i] = ship
+                            board[x][y + i] = ship
                         placed = True
                     else:
                         continue

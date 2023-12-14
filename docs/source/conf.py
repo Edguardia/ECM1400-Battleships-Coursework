@@ -19,7 +19,8 @@ sys.path.insert(0, os.path.abspath('../..'))
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx.ext.autodoc']
+extensions = ['sphinx.ext.autodoc',
+              'sphinx_mdinclude']
 
 templates_path = ['_templates']
 exclude_patterns = []

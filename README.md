@@ -24,6 +24,8 @@ in Python. The game will have multiple ways to play, either in a console or with
 ## Testing
 * RUN `pytest`
 ## Developer Documentation
+### Accessing Logs
+* Logs for the games are stored in `battleships.log`
 ### Sphinx/Autodoc
 To access the sphinx autodoc documentation, open `docs/build/html/index.html` in your browser or
 visit [https://edguardia.github.io/ECM1400-Battleships-Coursework/](https://edguardia.github.io/ECM1400-Battleships-Coursework/)
@@ -31,6 +33,7 @@ visit [https://edguardia.github.io/ECM1400-Battleships-Coursework/](https://edgu
 ### Config Documentation
 * `config.yaml` contains the configuration for the game. This includes the board size
 * To edit the board size, change the `board_size` variable in `config.yaml` to an integer preferably less than 20
+* You can also change level of logging here by setting `logging_level` to one of `DEBUG, INFO, WARNING, ERROR, CRITICAL, NOTSET`
 ####
 
 * To edit the number or length of battleships add or edit new rows in `battleships.txt` with the format `name_of_ship, length_of_ship`
@@ -40,7 +43,7 @@ visit [https://edguardia.github.io/ECM1400-Battleships-Coursework/](https://edgu
 ### Authors
 * Edward Pratt
 ### Licence
-*GPL-3.0
+* GPL-3.0
 ### Source
 https://github.com/Edguardia/ECM1400-Battleships-Coursework
 #### Documentation

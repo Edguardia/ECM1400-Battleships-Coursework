@@ -1,1 +1,2 @@
-board_size: 10
+board_size: 10 # Integer <20 for best results
+logging_level: DEBUG # DEBUG, INFO, WARNING, ERROR, CRITICAL, NOTSET
