@@ -24,6 +24,10 @@ in Python. The game will have multiple ways to play, either in a console or with
 ## Testing
 * RUN `pytest`
 ## Developer Documentation
+### Sphinx/Autodoc
+To access the sphinx autodoc documentation, open `docs/build/html/index.html` in your browser or
+visit [https://edguardia.github.io/ECM1400-Battleships-Coursework/](https://edguardia.github.io/ECM1400-Battleships-Coursework/)
+####
 ### Config Documentation
 * `config.yaml` contains the configuration for the game. This includes the board size
 * To edit the board size, change the `board_size` variable in `config.yaml` to an integer preferably less than 20
@@ -39,3 +43,5 @@ in Python. The game will have multiple ways to play, either in a console or with
 *GPL-3.0
 ### Source
 https://github.com/Edguardia/ECM1400-Battleships-Coursework
+#### Documentation
+https://edguardia.github.io/ECM1400-Battleships-Coursework
