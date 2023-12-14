@@ -13,6 +13,7 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to ECM-1400-Battleships-Coursework’s documentation!" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -42,13 +43,13 @@ in Python. The game will have multiple ways to play, either in a console or with
 <section id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Python 3.11</p></li>
+<li><p>Python 3.11docs</p></li>
 </ul>
 </section>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Clone the repository</p></li>
+<li><p>Clone the GitHub repository or run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">battleships-pkg-epratt</span></code></p></li>
 <li><p>RUN <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code></p></li>
 </ul>
 </section>
@@ -57,20 +58,22 @@ in Python. The game will have multiple ways to play, either in a console or with
 <section id="for-simple-game">
 <h3>For Simple Game<a class="headerlink" href="#for-simple-game" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>RUN <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">game_engine.py</span> <span class="pre">-c</span></code></p></li>
+<li><p>RUN <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">game_engine.py</span> <span class="pre">-c</span></code></p></li>
 </ul>
 </section>
 <section id="for-command-line-game-against-ai">
 <h3>For Command Line Game against AI<a class="headerlink" href="#for-command-line-game-against-ai" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>RUN <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">mp_game_engine.py</span> <span class="pre">-c</span></code></p></li>
+<li><p>EDIT <code class="docutils literal notranslate"><span class="pre">placement.json</span></code> to change where your ships will be placed</p></li>
+<li><p>Format of {“Ship_Name”: [“X_coord”, “Y_coord”, “direction either v or h”]}</p></li>
+<li><p>RUN <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">mp_game_engine.py</span> <span class="pre">-c</span></code></p></li>
 </ul>
 </section>
 <section id="for-web-game-against-ai">
 <h3>For Web Game against AI<a class="headerlink" href="#for-web-game-against-ai" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>RUN <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">main.py</span></code></p></li>
-<li><p>Then go to <a class="reference external" href="https://127.0.0.1/placement">127.0.0.1/placement</a> in your browser</p></li>
+<li><p>RUN <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">main.py</span></code></p></li>
+<li><p>Then go to <a class="reference external" href="https://127.0.0.1/placement">https://127.0.0.1/placement</a> in your browser</p></li>
 </ul>
 </section>
 </section>
@@ -119,12 +122,73 @@ visit <a class="reference external" href="https://edguardia.github.io/ECM1400-Ba
 </section>
 <section id="source">
 <h3>Source<a class="headerlink" href="#source" title="Link to this heading">¶</a></h3>
-<p><a class="reference external" href="https://github.com/Edguardia/ECM1400-Battleships-Coursework">https://github.com/Edguardia/ECM1400-Battleships-Coursework</a></p>
+<p><a class="reference external" href="https://pypi.org/project/battleships-pkg-epratt/1.0.0/">https://pypi.org/project/battleships-pkg-epratt/1.0.0/</a>
+<a class="reference external" href="https://github.com/Edguardia/ECM1400-Battleships-Coursework">https://github.com/Edguardia/ECM1400-Battleships-Coursework</a></p>
 <section id="documentation">
 <h4>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">¶</a></h4>
 <p><a class="reference external" href="https://edguardia.github.io/ECM1400-Battleships-Coursework">https://edguardia.github.io/ECM1400-Battleships-Coursework</a></p>
 </section>
 </section>
+</section>
+</section>
+<section id="self-assessment">
+<h1>Self Assessment<a class="headerlink" href="#self-assessment" title="Link to this heading">¶</a></h1>
+<section id="complete-features">
+<h2>Complete Features<a class="headerlink" href="#complete-features" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>components.py tasks</p>
+<ul>
+<li><p>Simple Placement</p></li>
+<li><p>Random Placement</p></li>
+<li><p>Custom Placement</p></li>
+</ul>
+</li>
+<li><p>game_engine.py tasks</p></li>
+<li><p>mp_game_engine.py tasks</p></li>
+<li><p>main.py (FLASK) tasks</p></li>
+<li><p>Logging tasks</p></li>
+<li><p>Code Styling</p></li>
+<li><p>Project Delivery</p>
+<ul>
+<li><p><a class="reference external" href="https://pypi.org/project/battleships-pkg-epratt/1.0.0/">https://pypi.org/project/battleships-pkg-epratt/1.0.0/</a></p></li>
+<li><p>Sphinx Documentation</p></li>
+<li><p>Hosting on GitHub</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/Edguardia/ECM1400-Battleships-Coursework">https://github.com/Edguardia/ECM1400-Battleships-Coursework</a></p></li>
+<li><p><a class="reference external" href="https://edguardia.github.io/ECM1400-Battleships-Coursework">https://edguardia.github.io/ECM1400-Battleships-Coursework</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Input Validation</p></li>
+</ul>
+</section>
+<section id="partially-complete-features">
+<h2>Partially Complete Features<a class="headerlink" href="#partially-complete-features" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Difficulty Levels</p>
+<ul>
+<li><p>AI has been slightly improved to stop it hitting the same squared twice</p></li>
+</ul>
+</li>
+<li><p>Testing</p>
+<ul>
+<li><p>Most of the testing has been written</p></li>
+<li><p>Not all custom functions have written tests</p></li>
+</ul>
+</li>
+<li><p>Config Files</p>
+<ul>
+<li><p>Config files have been implemented but not for all features user could choose</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="incomplete-features">
+<h2>Incomplete Features<a class="headerlink" href="#incomplete-features" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Multi-Player Interface</p></li>
+</ul>
 </section>
 </section>
 
@@ -145,11 +209,32 @@ visit <a class="reference external" href="https://edguardia.github.io/ECM1400-Ba
 
 
 <h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Readme File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#ecm1400-battleships-coursework">ECM1400-Battleships-Coursework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#developer-documentation">Developer Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#details">Details</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#self-assessment">Self Assessment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#complete-features">Complete Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#partially-complete-features">Partially Complete Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#incomplete-features">Incomplete Features</a></li>
+</ul>
+</li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to ECM-1400-Battleships-Coursework’s documentation!</a></li>
   </ul></li>
 </ul>
 </div>
