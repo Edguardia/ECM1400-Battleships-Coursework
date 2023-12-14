@@ -1,3 +1,17 @@
+Metadata-Version: 2.1
+Name: battleships-pkg-epratt
+Version: 1.0.0
+Summary: A battleships game built for the module ECM1400 at the University of Exeter.
+Home-page: https://github.com/Edguardia/ECM1400-Battleships-Coursework
+Author: Edward Pratt
+Author-email: ep718@exeter.ac.uk
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
 # ECM1400-Battleships-Coursework
 
 ## Introduction
@@ -7,7 +21,7 @@ in Python. The game will have multiple ways to play, either in a console or with
 * Python 3.11
 
 ## Installation
-* Clone the GitHub repository or run `pip install battleships-pkg-epratt`
+* Clone the repository
 * RUN `pip install -r requirements.txt`
 
 ## Getting Started
@@ -47,7 +61,6 @@ visit [https://edguardia.github.io/ECM1400-Battleships-Coursework/](https://edgu
 ### Licence
 * GPL-3.0
 ### Source
-https://pypi.org/project/battleships-pkg-epratt/1.0.0/
 https://github.com/Edguardia/ECM1400-Battleships-Coursework
 #### Documentation
 https://edguardia.github.io/ECM1400-Battleships-Coursework
@@ -67,7 +80,6 @@ https://edguardia.github.io/ECM1400-Battleships-Coursework
 * Logging tasks
 * Code Styling
 * Project Delivery
-  * https://pypi.org/project/battleships-pkg-epratt/1.0.0/
   * Sphinx Documentation
   * Hosting on GitHub
       * https://github.com/Edguardia/ECM1400-Battleships-Coursework

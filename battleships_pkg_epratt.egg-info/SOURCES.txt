@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+battleships_pkg_epratt.egg-info/PKG-INFO
+battleships_pkg_epratt.egg-info/SOURCES.txt
+battleships_pkg_epratt.egg-info/dependency_links.txt
+battleships_pkg_epratt.egg-info/top_level.txt
+tests/__init__.py
+tests/test_functionality.py
+tests/test_helper_functions.py
+tests/test_students.py

@@ -53,7 +53,7 @@ def ai_opponent_game_loop():
             sys.exit()
 
     except EOFError:
-        print("Board Size too small to fit your ships or ai ships, increase board size and try again.")
+        print("Placement.json does not fit on board size or board_size is too small to fit all ships.")
         sys.exit()
 
     print("Your board:")
