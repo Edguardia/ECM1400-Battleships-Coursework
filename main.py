@@ -7,7 +7,6 @@ import game_engine
 import mp_game_engine
 from base_logger import logger
 
-
 with open("config.yaml", "r", encoding='utf-8') as file:
     config = yaml.safe_load(file)
 
@@ -75,9 +74,6 @@ def process_attack():
         hit_or_miss = game_engine.attack(
             (int(x), int(y)), players["ai"][0], players["ai"][1])
 
-
-
-
         players["player"][2].append(player_target_coordinates)
         if ai_hit_or_miss is True:
             session['aiHits'] += 1
@@ -94,10 +90,10 @@ def process_attack():
         if session['aiHits'] == session['needed_hits']:
             return jsonify({"hit": hit_or_miss, "AI_Turn": ai_turn, "finished": "You Lose!"})
 
-
         return jsonify({"hit": hit_or_miss, "AI_Turn": ai_turn})
 
 
 if __name__ == "__main__":
+
     logger.info("Starting Flask Application")
     app.run(debug=True)
