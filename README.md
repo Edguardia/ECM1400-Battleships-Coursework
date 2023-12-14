@@ -4,7 +4,7 @@
 This is the repository for the ECM1400 Battleships Coursework. The aim of this project is to create a Battleships game 
 in Python. The game will have multiple ways to play, either in a console or with a web interface.
 ## Prerequisites
-* Python 3.11docs
+* Python 3.11
 
 ## Installation
 * Clone the GitHub repository or run `pip install battleships-pkg-epratt`
