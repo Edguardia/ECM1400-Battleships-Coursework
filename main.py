@@ -96,4 +96,4 @@ def process_attack():
 if __name__ == "__main__":
 
     logger.info("Starting Flask Application")
-    app.run(debug=True)
+    app.run(debug=False)
