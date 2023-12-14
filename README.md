@@ -12,13 +12,15 @@ in Python. The game will have multiple ways to play, either in a console or with
 
 ## Getting Started
 ### For Simple Game
-* RUN `python3 game_engine.py -c`
+* RUN `python game_engine.py -c`
 
 ### For Command Line Game against AI
-* RUN `python3 mp_game_engine.py -c`
+* EDIT `placement.json` to change where your ships will be placed
+* Format of {"Ship_Name": ["X_coord", "Y_coord", "direction either v or h"]}
+* RUN `python mp_game_engine.py -c`
 
 ### For Web Game against AI
-* RUN `python3 main.py`
+* RUN `python main.py`
 * Then go to [127.0.0.1/placement](https://127.0.0.1/placement) in your browser
 
 ## Testing
@@ -48,3 +50,37 @@ visit [https://edguardia.github.io/ECM1400-Battleships-Coursework/](https://edgu
 https://github.com/Edguardia/ECM1400-Battleships-Coursework
 #### Documentation
 https://edguardia.github.io/ECM1400-Battleships-Coursework
+
+
+
+
+# Self Assessment
+## Complete Features
+* components.py tasks
+  * Simple Placement
+  * Random Placement 
+  * Custom Placement
+* game_engine.py tasks
+* mp_game_engine.py tasks
+* main.py (FLASK) tasks
+* Logging tasks
+* Code Styling
+* Project Delivery
+  * Sphinx Documentation
+  * Hosting on GitHub
+      * https://github.com/Edguardia/ECM1400-Battleships-Coursework
+      * https://edguardia.github.io/ECM1400-Battleships-Coursework
+* Input Validation
+
+## Partially Complete Features
+* Difficulty Levels
+  * AI has been slightly improved to stop it hitting the same squared twice
+* Testing
+    * Most of the testing has been written
+    * Not all custom functions have written tests
+* Config Files
+  * Config files have been implemented but not for all features user could choose
+
+
+## Incomplete Features
+* Multi-Player Interface

@@ -3,9 +3,13 @@
 import random
 import json
 from base_logger import logger
+import yaml
+
+with open("config.yaml", encoding="utf-8") as file:
+    config = yaml.safe_load(file)
 
 
-def initialise_board(size: int = 10) -> list:
+def initialise_board(size: int = config["board_size"]) -> list:
     """Initialises the board with the given size"""
     board = []
     # x = columns and y = rows
@@ -32,6 +36,7 @@ def create_battleships(file_name: str = "battleships.txt") -> dict:
 
 def validate_placement(direction: str, board: list, x: int, y: int, length: int) -> bool:
     """Checks if the placement of the battleships is valid on the board"""
+
     logger.debug(("Validating placement", direction, board, x, y, length))
     board_size = len(board)
     valid = True
@@ -39,7 +44,9 @@ def validate_placement(direction: str, board: list, x: int, y: int, length: int)
         for i in range(0, length):
             if x + i >= board_size or board[x + i][y] is not None:
                 valid = False
+
                 logger.debug("Invalid Placement")
+
                 break
 
             continue
@@ -49,6 +56,7 @@ def validate_placement(direction: str, board: list, x: int, y: int, length: int)
             if y + i >= board_size or board[x][y + i] is not None:
                 valid = False
                 logger.debug("Invalid Placement")
+
                 break
 
             continue
@@ -70,9 +78,13 @@ def place_battleships(board: list, ships: dict, board_data: list = None, algorit
     elif algorithm == "random":
         logger.info("Placing battleships with random algorithm")
         for ship in ships:
+            invalid_count = 0
             logger.info(("Placing battleship:", ship))
             placed = False
             while placed is False:
+                invalid_count += 1
+                if invalid_count > 100:
+                    raise EOFError("Board size is too small for ships to fit")
                 x = random.randint(0, len(board) - 1)
                 y = random.randint(0, len(board) - 1)
                 # v = down, h = right
@@ -106,13 +118,16 @@ def place_battleships(board: list, ships: dict, board_data: list = None, algorit
 
         logger.info(("Placing with these instructions:", placement))
         for ship in placement:
+            invalid_count = 0
             logger.info(("Placing battleship:", ship))
             x = int(placement[ship][0])
             y = int(placement[ship][1])
             direction = placement[ship][2]
             placed = False
             while placed is False:
-
+                invalid_count += 1
+                if invalid_count > 10:
+                    raise EOFError("Board size is too small for your ships to fit")
                 if direction == "h":
                     valid = validate_placement(
                         "h", board, x, y, ships[ship])
@@ -138,5 +153,5 @@ def place_battleships(board: list, ships: dict, board_data: list = None, algorit
                     continue
     else:
         print("Invalid difficulty")
-    print(board)
+
     return board

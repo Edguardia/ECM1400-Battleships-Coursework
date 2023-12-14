@@ -1,6 +1,7 @@
 """Contains game engine functions for playing against an AI opponent"""
 
 import random
+import sys
 import components
 import game_engine
 from base_logger import logger
@@ -39,11 +40,21 @@ def ai_opponent_game_loop():
     for user in players:
         players[user] = [
             components.initialise_board(), components.create_battleships()]
-    players["ai"][0] = components.place_battleships(
-        players["ai"][0], players["ai"][1], algorithm="random")
 
-    players["player"][0] = components.place_battleships(
-        players["player"][0], players["player"][1], algorithm="custom")
+    try:
+        players["ai"][0] = components.place_battleships(
+            players["ai"][0], players["ai"][1], algorithm="random")
+
+        try:
+            players["player"][0] = components.place_battleships(
+                players["player"][0], players["player"][1], algorithm="custom")
+        except ValueError:
+            print("placement.json is invalid, please fix it and try again.")
+            sys.exit()
+
+    except EOFError:
+        print("Board Size too small to fit your ships or ai ships, increase board size and try again.")
+        sys.exit()
 
     print("Your board:")
     print(board_to_ascii(players["player"][0]))
@@ -75,6 +86,7 @@ def ai_opponent_game_loop():
                 print("AI HITS!")
             else:
                 print("AI MISSES!")
+            print("Your board:")
             print(board_to_ascii(players["player"][0]))
             turn_counter = 0
 
